@@ -2,7 +2,7 @@ name: Update AU TVBox Sources
 
 on:
   schedule:
-    - cron: '0 4,16 * * *'  # Runs automatically at 04:00 and 16:00 UTC daily
+    - cron: '0 4 * * 0'  # 每周日 04:00 UTC (澳洲时间周日下午) 自动巡检一次
   workflow_dispatch:        # Allows manual 1-click trigger in GitHub Actions tab
   push:
     branches: [ main ]
