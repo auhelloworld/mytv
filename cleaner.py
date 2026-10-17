@@ -128,7 +128,7 @@ def test_site_latency(site: dict) -> dict:
         headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
         start = time.time()
         try:
-            r = requests.head(test_url, headers=headers, timeout=2.5, allow_redirects=True)
+            r = requests.head(test_url, headers=headers, timeout=4.0, allow_redirects=True)
             if r.status_code in [200, 301, 302, 403]:
                 latency = int((time.time() - start) * 1000)
             elif r.status_code in [404, 502, 503, 504]:
@@ -136,7 +136,7 @@ def test_site_latency(site: dict) -> dict:
         except Exception:
             try:
                 start = time.time()
-                r = requests.get(test_url, headers=headers, timeout=2.5, stream=True)
+                r = requests.get(test_url, headers=headers, timeout=4.0, stream=True)
                 if r.status_code in [200, 301, 302, 403]:
                     latency = int((time.time() - start) * 1000)
                 elif r.status_code in [404, 502, 503]:
@@ -203,32 +203,14 @@ def main():
     with ThreadPoolExecutor(max_workers=10) as executor:
         results = executor.map(test_site_latency, all_sites)
         for s in results:
-            if s["_is_alive"] and s["_latency"] < 3000:
+            if s["_is_alive"] and s["_latency"] < 3500:
                 tested_sites.append(s)
 
     tested_sites.sort(key=lambda x: x["_latency"])
     print(f"[+] 存活且延迟合格站点数: {len(tested_sites)} 个")
 
-    # 优先筛选体育直播站 (88看球/瓜子体育)
-    sports_sites = []
-    seen_sports = set()
-    for s in tested_sites:
-        k = s.get("key", "").lower()
-        n = s.get("name", "").lower()
-        if ("看球" in k or "看球" in n) and "kanqiu" not in seen_sports:
-            seen_sports.add("kanqiu")
-            s_clean = {key: v for key, v in s.items() if not key.startswith("_")}
-            s_clean["searchable"] = 0
-            s_clean["quickSearch"] = 0
-            s_clean["name"] = "⚽┃八八看球┃[足球/篮球/网球]"
-            sports_sites.append(s_clean)
-        elif ("瓜子" in k or "吃瓜" in k or "体育" in n) and "guazi" not in seen_sports:
-            seen_sports.add("guazi")
-            s_clean = {key: v for key, v in s.items() if not key.startswith("_")}
-            s_clean["searchable"] = 0
-            s_clean["quickSearch"] = 0
-            s_clean["name"] = "🏀┃瓜子体育┃[赛事直播]"
-            sports_sites.append(s_clean)
+    # 过滤掉已知失效的看球源（如 88看球因转让/改版已失效）
+    tested_sites = [s for s in tested_sites if "kanqiu" not in s.get("api", "").lower() and "看球" not in s.get("name", "")]
 
     def format_site_name(raw: str, prefix: str, suffix: str) -> str:
         # 去掉已有前缀与多余竖线
@@ -239,8 +221,8 @@ def main():
     core_vod_keys = ["厂长", "csp_Jpys", "csp_Wwys", "csp_Gz360", "csp_SaoHuo", "csp_SP360", "立播", "光影", "海绵"]
 
     # 3. 构建 3 个不同特性的专属仓
-    # --- 仓 1：极速主力仓 (体育直播站置顶 + 8 个秒播直连大厂站) ---
-    fast_sites = list(sports_sites)
+    # --- 仓 1：极速主力仓 (秒播直连大厂站置顶，100%存活可用) ---
+    fast_sites = []
     for ck in core_vod_keys:
         for s in tested_sites:
             if ck in s.get("key", "") or ck in s.get("name", ""):
@@ -251,7 +233,7 @@ def main():
                 if s_clean not in fast_sites:
                     fast_sites.append(s_clean)
                 break
-        if len(fast_sites) >= 10:
+        if len(fast_sites) >= 8:
             break
 
     for s in tested_sites:
@@ -264,8 +246,8 @@ def main():
         if s_clean not in fast_sites:
             fast_sites.append(s_clean)
 
-    # --- 仓 2：1080P/4K 高清画质精选仓 (体育置顶 + 高清站 + 动漫) ---
-    hd_sites = list(sports_sites)
+    # --- 仓 2：1080P/4K 高清画质精选仓 (高清画质站 + 动漫) ---
+    hd_sites = []
     hd_keys = core_vod_keys + ["动漫", "哔哩", "糯米", "文采"]
     for hk in hd_keys:
         for s in tested_sites:
