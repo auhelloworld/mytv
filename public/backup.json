@@ -465,6 +465,14 @@
       "changeable": 0
     },
     {
+      "key": "csp_Dm84",
+      "name": "🤣┃动漫┃巴士",
+      "type": 3,
+      "playerType": "2",
+      "api": "csp_Dm84",
+      "ext": "https://dm84.net"
+    },
+    {
       "key": "厂长",
       "name": "🏭┃厂长┃影视",
       "type": 3,
@@ -476,19 +484,18 @@
       "ext": "https://www.czzy89.com"
     },
     {
-      "key": "csp_Dm84",
-      "name": "🤣┃动漫┃巴士",
-      "type": 3,
-      "playerType": "2",
-      "api": "csp_Dm84",
-      "ext": "https://dm84.net"
-    },
-    {
       "key": "csp_Wwys",
       "name": "🌾️┃农民┃影视",
       "type": 3,
       "api": "csp_Wwys",
       "ext": "https://vip.wwgz.cn:5200"
+    },
+    {
+      "key": "csp_Jpys",
+      "name": "🥇️┃金牌┃影视",
+      "type": 3,
+      "api": "csp_Jpys",
+      "ext": "https://y2s52n7.com"
     }
   ],
   "rules": [
@@ -662,5 +669,25 @@
   ],
   "ads": [
     "static-mozai.4gtv.tv"
+  ],
+  "lives": [
+    {
+      "name": "🏆 央卫体育 & 港台电视频道",
+      "type": 0,
+      "url": "https://tv.tmxk.kdns.fr/yplrnuc7",
+      "playerType": 2
+    },
+    {
+      "name": "⚽ 全球体育直播专线 (IPTV-Sports)",
+      "type": 0,
+      "url": "https://iptv-org.github.io/iptv/categories/sports.m3u",
+      "playerType": 2
+    },
+    {
+      "name": "🦘 澳洲本地免费电视 (ABC/SBS/9Now)",
+      "type": 0,
+      "url": "https://iptv-org.github.io/iptv/countries/au.m3u",
+      "playerType": 2
+    }
   ]
 }

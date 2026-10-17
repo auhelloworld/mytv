@@ -14,6 +14,14 @@
       "ext": "https://www.czzy89.com"
     },
     {
+      "key": "csp_Jpys",
+      "name": "🎬┃金牌┃影视┃[超清纯净]",
+      "type": 3,
+      "api": "csp_Jpys",
+      "ext": "https://y2s52n7.com",
+      "searchable": 1
+    },
+    {
       "key": "csp_Wwys",
       "name": "🎬┃农民┃影视┃[超清纯净]",
       "type": 3,
@@ -119,22 +127,6 @@
       "timeout": 12,
       "order_num": 0,
       "changeable": 0
-    },
-    {
-      "key": "csp_Bili",
-      "name": "🎬┃️哔哩┃合集┃[超清纯净]",
-      "type": 3,
-      "api": "csp_Bili",
-      "playerType": 2,
-      "ext": {
-        "json": "https://nos.netease.com/ysf/0075389dca9afadd4614e9713765ff17.txt",
-        "cookie": ""
-      },
-      "style": {
-        "type": "rect",
-        "ratio": 1.333
-      },
-      "searchable": 1
     }
   ],
   "rules": [
@@ -308,5 +300,25 @@
   ],
   "ads": [
     "static-mozai.4gtv.tv"
+  ],
+  "lives": [
+    {
+      "name": "🏆 央卫体育 & 港台电视频道",
+      "type": 0,
+      "url": "https://tv.tmxk.kdns.fr/yplrnuc7",
+      "playerType": 2
+    },
+    {
+      "name": "⚽ 全球体育直播专线 (IPTV-Sports)",
+      "type": 0,
+      "url": "https://iptv-org.github.io/iptv/categories/sports.m3u",
+      "playerType": 2
+    },
+    {
+      "name": "🦘 澳洲本地免费电视 (ABC/SBS/9Now)",
+      "type": 0,
+      "url": "https://iptv-org.github.io/iptv/countries/au.m3u",
+      "playerType": 2
+    }
   ]
 }
