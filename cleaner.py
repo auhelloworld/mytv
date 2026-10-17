@@ -262,14 +262,36 @@ def main():
         s_clean = {k: v for k, v in s.items() if not k.startswith("_")}
         backup_sites.append(s_clean)
 
-    # 4. 生成多仓 JSON
+    # 4. 体育与综合直播专线 (包含央卫体育CCTV5、全球体育IPTV、澳洲本地电视频道)
+    curated_lives = [
+        {
+            "name": "🏆 央卫体育 & 港台电视频道",
+            "type": 0,
+            "url": "https://tv.tmxk.kdns.fr/yplrnuc7",
+            "playerType": 2
+        },
+        {
+            "name": "⚽ 全球体育直播专线 (IPTV-Sports)",
+            "type": 0,
+            "url": "https://iptv-org.github.io/iptv/categories/sports.m3u",
+            "playerType": 2
+        },
+        {
+            "name": "🦘 澳洲本地免费电视 (ABC/SBS/9Now)",
+            "type": 0,
+            "url": "https://iptv-org.github.io/iptv/countries/au.m3u",
+            "playerType": 2
+        }
+    ]
+
     def make_config(sites_list):
         return {
             "spider": master_spider,
             "wallpaper": master_wallpaper,
             "sites": sites_list,
             "rules": merged_rules,
-            "ads": list(merged_ads)
+            "ads": list(merged_ads),
+            "lives": curated_lives
         }
 
     with open(os.path.join(OUTPUT_DIR, "fast.json"), "w", encoding="utf-8") as f:
