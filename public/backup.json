@@ -440,6 +440,14 @@
       "changeable": 0
     },
     {
+      "key": "csp_Dm84",
+      "name": "🤣┃动漫┃巴士",
+      "type": 3,
+      "playerType": "2",
+      "api": "csp_Dm84",
+      "ext": "https://dm84.net"
+    },
+    {
       "key": "厂长",
       "name": "🏭┃厂长┃影视",
       "type": 3,
@@ -449,21 +457,6 @@
       "quickSearch": 1,
       "filterable": 1,
       "ext": "https://www.czzy89.com"
-    },
-    {
-      "key": "csp_Dm84",
-      "name": "🤣┃动漫┃巴士",
-      "type": 3,
-      "playerType": "2",
-      "api": "csp_Dm84",
-      "ext": "https://dm84.net"
-    },
-    {
-      "key": "csp_Wwys",
-      "name": "🌾️┃农民┃影视",
-      "type": 3,
-      "api": "csp_Wwys",
-      "ext": "https://vip.wwgz.cn:5200"
     },
     {
       "key": "csp_Jpys",
