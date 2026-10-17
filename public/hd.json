@@ -14,22 +14,6 @@
       "ext": "https://www.czzy89.com"
     },
     {
-      "key": "csp_Jpys",
-      "name": "🎬┃金牌┃影视┃[超清纯净]",
-      "type": 3,
-      "api": "csp_Jpys",
-      "ext": "https://y2s52n7.com",
-      "searchable": 1
-    },
-    {
-      "key": "csp_Wwys",
-      "name": "🎬┃农民┃影视┃[超清纯净]",
-      "type": 3,
-      "api": "csp_Wwys",
-      "ext": "https://vip.wwgz.cn:5200",
-      "searchable": 1
-    },
-    {
       "key": "csp_Gz360",
       "name": "🎬┃瓜子┃影视┃[超清纯净]",
       "type": 3,
@@ -127,6 +111,32 @@
       "timeout": 12,
       "order_num": 0,
       "changeable": 0
+    },
+    {
+      "key": "csp_Bili",
+      "name": "🎬┃️哔哩┃合集┃[超清纯净]",
+      "type": 3,
+      "api": "csp_Bili",
+      "playerType": 2,
+      "ext": {
+        "json": "https://nos.netease.com/ysf/0075389dca9afadd4614e9713765ff17.txt",
+        "cookie": ""
+      },
+      "style": {
+        "type": "rect",
+        "ratio": 1.333
+      },
+      "searchable": 1
+    },
+    {
+      "key": "糯米",
+      "name": "🎬┃🍓糯米┃秒播┃[超清纯净]",
+      "type": 3,
+      "api": "csp_NmyswvGuard",
+      "timeout": 15,
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1
     }
   ],
   "rules": [
