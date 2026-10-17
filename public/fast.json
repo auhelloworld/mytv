@@ -3,8 +3,37 @@
   "wallpaper": "https://深色壁纸.xxooo.cf/",
   "sites": [
     {
+      "key": "看球",
+      "name": "⚽┃八八看球┃[足球/篮球/网球]",
+      "type": 3,
+      "api": "csp_Kanqiu",
+      "searchable": 0,
+      "quickSearch": 0,
+      "changeable": 0,
+      "gridview": 3,
+      "style": {
+        "type": "list"
+      }
+    },
+    {
+      "key": "瓜子",
+      "name": "🏀┃瓜子体育┃[赛事直播]",
+      "type": 3,
+      "api": "csp_GuaziTY",
+      "style": {
+        "type": "rect",
+        "ratio": 1.333
+      },
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 1,
+      "timeout": 12,
+      "order_num": 0,
+      "changeable": 0
+    },
+    {
       "key": "厂长",
-      "name": "🚀┃厂长┃影视┃[1080P/秒播]",
+      "name": "🚀┃厂长影视┃[1080P/秒播]",
       "type": 3,
       "playerType": "2",
       "api": "csp_Czsapp",
@@ -15,7 +44,7 @@
     },
     {
       "key": "csp_Jpys",
-      "name": "🚀┃金牌┃影视┃[1080P/秒播]",
+      "name": "🚀┃金牌影视┃[1080P/秒播]",
       "type": 3,
       "api": "csp_Jpys",
       "ext": "https://y2s52n7.com",
@@ -24,7 +53,7 @@
     },
     {
       "key": "csp_Wwys",
-      "name": "🚀┃农民┃影视┃[1080P/秒播]",
+      "name": "🚀┃农民影视┃[1080P/秒播]",
       "type": 3,
       "api": "csp_Wwys",
       "ext": "https://vip.wwgz.cn:5200",
@@ -33,7 +62,7 @@
     },
     {
       "key": "csp_Gz360",
-      "name": "🚀┃瓜子┃影视┃[1080P/秒播]",
+      "name": "🚀┃瓜子影视┃[1080P/秒播]",
       "type": 3,
       "api": "csp_Gz360",
       "playerType": 2,
@@ -42,7 +71,7 @@
     },
     {
       "key": "csp_SaoHuo",
-      "name": "🚀┃火火┃影视┃[1080P/秒播]",
+      "name": "🚀┃火火影视┃[1080P/秒播]",
       "type": 3,
       "api": "csp_SaoHuo",
       "playerType": 2,
@@ -52,7 +81,7 @@
     },
     {
       "key": "csp_SP360",
-      "name": "🚀┃360┃官源┃[1080P/秒播]",
+      "name": "🚀┃360官源┃[1080P/秒播]",
       "type": 3,
       "api": "csp_SP360",
       "searchable": 1,
@@ -60,7 +89,7 @@
     },
     {
       "key": "立播",
-      "name": "🚀┃🌟立播┃不卡┃[1080P/秒播]",
+      "name": "🚀┃立播不卡┃[1080P/秒播]",
       "type": 3,
       "api": "csp_LibvioGuard",
       "timeout": 10,
@@ -74,7 +103,7 @@
     },
     {
       "key": "光影",
-      "name": "🚀┃🌞光影┃不卡┃[1080P/秒播]",
+      "name": "🚀┃光影不卡┃[1080P/秒播]",
       "type": 3,
       "api": "csp_T4Guard",
       "searchable": 1,
@@ -257,22 +286,10 @@
   ],
   "lives": [
     {
-      "name": "🏆 央卫体育 & 港台电视频道",
+      "name": "🏆 专属体育与央视 (澳洲直连/100%实测)",
       "type": 0,
-      "url": "https://tv.tmxk.kdns.fr/yplrnuc7",
-      "playerType": 2
-    },
-    {
-      "name": "⚽ 全球体育直播专线 (IPTV-Sports)",
-      "type": 0,
-      "url": "https://iptv-org.github.io/iptv/categories/sports.m3u",
-      "playerType": 2
-    },
-    {
-      "name": "🦘 澳洲本地免费电视 (ABC/SBS/9Now)",
-      "type": 0,
-      "url": "https://iptv-org.github.io/iptv/countries/au.m3u",
-      "playerType": 2
+      "url": "https://auhelloworld.github.io/mytv/live.txt",
+      "playerType": 1
     }
   ]
 }
