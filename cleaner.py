@@ -308,6 +308,34 @@ Sky Racing 2,https://skylivetab-new.akamaized.net/hls/live/2038781/sky2/index.m3
         f.write(live_content.strip() + "\n")
     print(f"[+] 专属直播源已生成: {live_file_path}")
 
+    # 同时生成标准 M3U 格式供 iPad / iOS / APTV / VLC / Infuse 播放器使用
+    m3u_content = """#EXTM3U
+#EXTINF:-1 tvg-id="cctv5" tvg-name="CCTV-5" group-title="央视专区",CCTV-5 体育 (1080P)
+http://107.150.60.122/live/cctv5hd.m3u8
+#EXTINF:-1 tvg-id="cctv5plus" tvg-name="CCTV-5+" group-title="央视专区",CCTV-5+ 赛事 (1080P)
+http://107.150.60.122/live/cctv5p.m3u8
+#EXTINF:-1 tvg-id="cctv6" tvg-name="CCTV-6" group-title="央视专区",CCTV-6 电影 (1080P)
+http://107.150.60.122/live/cctv6hd.m3u8
+#EXTINF:-1 tvg-id="cctv16" tvg-name="CCTV-16" group-title="央视专区",CCTV-16 奥林匹克 (1080P)
+http://107.150.60.122/live/cctv16hd.m3u8
+#EXTINF:-1 group-title="体育竞技",广东体育 (1080P)
+http://107.150.60.122/live/gdty.m3u8
+#EXTINF:-1 group-title="体育竞技",五星体育 (1080P)
+http://107.150.60.122/live/wxty.m3u8
+#EXTINF:-1 group-title="体育竞技",Fox Sports News (1080P)
+https://skynewsau-live-premium.akamaized.net/hls/live/2105307/foxsportsnews/live_1080p.m3u8
+#EXTINF:-1 group-title="体育竞技",Red Bull TV 极限运动 (1080P)
+https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8
+#EXTINF:-1 group-title="澳洲精选",ABC News Australia (720P)
+https://abc-news-dmd-streams-1.akamaized.net/out/v1/701126012d044971b3fa89406a440133/index.m3u8
+#EXTINF:-1 group-title="澳洲精选",Sky Racing 2 (720P)
+https://skylivetab-new.akamaized.net/hls/live/2038781/sky2/index.m3u8
+"""
+    m3u_file_path = os.path.join(OUTPUT_DIR, "live.m3u")
+    with open(m3u_file_path, "w", encoding="utf-8") as f:
+        f.write(m3u_content.strip() + "\n")
+    print(f"[+] M3U 直播源已生成: {m3u_file_path}")
+
     # 直播源配置 (指向自建的 GitHub Pages live.txt)
     curated_lives = [
         {
