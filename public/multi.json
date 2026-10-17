@@ -2,15 +2,15 @@
   "urls": [
     {
       "name": "🚀 [澳洲极速主力仓 - 8大秒播站]",
-      "url": "http://192.168.50.46:8080/fast.json"
+      "url": "https://auhelloworld.github.io/mytv/fast.json"
     },
     {
       "name": "🎬 [1080P超清精选仓 - 含动漫/体育]",
-      "url": "http://192.168.50.46:8080/hd.json"
+      "url": "https://auhelloworld.github.io/mytv/hd.json"
     },
     {
       "name": "🛡️ [全网冷门兜底仓 - 片库最全]",
-      "url": "http://192.168.50.46:8080/backup.json"
+      "url": "https://auhelloworld.github.io/mytv/backup.json"
     }
   ]
 }
