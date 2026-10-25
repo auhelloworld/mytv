@@ -26,10 +26,11 @@ BLACKLIST_KEYWORDS = [
     # 网盘搜片（澳洲无国内SVIP限速/需扫码）
     "网盘", "云盘", "阿里", "夸克", "百度", "115", "天翼", "uc", "pan", "quark", 
     "alishare", "push_agent", "duopan", "misou", "pansearch", "mydrive", "clouddrive",
+    "四盘", "seedhub", "seed",
     # 非影视冗余项（教育、戏曲、儿童、预告片）
     "课堂", "教学", "少儿", "小学", "初中", "高中", "急救", "启蒙", "戏曲", "儿歌", "预告", "片单",
     # 杂项与引流广告
-    "配置", "tg", "telegram", "弹幕", "本地文件", "qq频道", "说明", "公告", "防失联", "打赏", "贩卖"
+    "配置", "tg", "telegram", "弹幕", "本地文件", "qq频道", "说明", "公告", "防失联", "打赏", "贩卖", "请勿信"
 ]
 
 UPSTREAM_SOURCES = [
@@ -114,6 +115,8 @@ def test_site_latency(site: dict) -> dict:
     """测试站点连通性与 HTTP 延迟 (ms)"""
     ext = site.get("ext", "")
     api = site.get("api", "")
+    key = site.get("key", "")
+    name = site.get("name", "")
     
     test_url = None
     if isinstance(ext, str) and ext.startswith("http"):
@@ -126,23 +129,35 @@ def test_site_latency(site: dict) -> dict:
     
     if test_url:
         headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
-        start = time.time()
-        try:
-            r = requests.head(test_url, headers=headers, timeout=4.0, allow_redirects=True)
-            if r.status_code in [200, 301, 302, 403]:
-                latency = int((time.time() - start) * 1000)
-            elif r.status_code in [404, 502, 503, 504]:
-                is_alive = False
-        except Exception:
+        is_core = any(ck in key or ck in name for ck in ["厂长", "csp_Jpys", "csp_Wwys", "csp_Gz360", "csp_SaoHuo", "csp_SP360", "立播", "光影", "海绵"])
+        max_attempts = 2 if is_core else 1
+
+        for attempt in range(max_attempts):
+            start = time.time()
             try:
-                start = time.time()
-                r = requests.get(test_url, headers=headers, timeout=4.0, stream=True)
+                r = requests.head(test_url, headers=headers, timeout=5.0, allow_redirects=True)
                 if r.status_code in [200, 301, 302, 403]:
                     latency = int((time.time() - start) * 1000)
-                elif r.status_code in [404, 502, 503]:
+                    is_alive = True
+                    break
+                elif r.status_code in [404, 502, 503, 504]:
                     is_alive = False
+                    break
             except Exception:
-                is_alive = False
+                try:
+                    start = time.time()
+                    r = requests.get(test_url, headers=headers, timeout=5.0, stream=True)
+                    if r.status_code in [200, 301, 302, 403]:
+                        latency = int((time.time() - start) * 1000)
+                        is_alive = True
+                        break
+                    elif r.status_code in [404, 502, 503]:
+                        is_alive = False
+                        break
+                except Exception:
+                    is_alive = False
+            if attempt < max_attempts - 1:
+                time.sleep(0.5)
 
     site_copy = dict(site)
     site_copy["_latency"] = latency
@@ -203,7 +218,7 @@ def main():
     with ThreadPoolExecutor(max_workers=10) as executor:
         results = executor.map(test_site_latency, all_sites)
         for s in results:
-            if s["_is_alive"] and s["_latency"] < 3500:
+            if s["_is_alive"] and s["_latency"] < 4500:
                 tested_sites.append(s)
 
     tested_sites.sort(key=lambda x: x["_latency"])
@@ -233,8 +248,6 @@ def main():
                 if s_clean not in fast_sites:
                     fast_sites.append(s_clean)
                 break
-        if len(fast_sites) >= 8:
-            break
 
     for s in tested_sites:
         if len(fast_sites) >= 10:
@@ -270,6 +283,7 @@ def main():
     # 4. 生成专属纯净体育与央视直播源 (live.txt)
     # 严格经过澳洲本地 ffmpeg 逐一截帧解码校验，剔除所有 404/假源/医药广告
     live_content = """央视专区,#genre#
+CCTV-1 综合,http://107.150.60.122/live/cctv1hd.m3u8
 CCTV-5 体育,http://107.150.60.122/live/cctv5hd.m3u8
 CCTV-5+ 赛事,http://107.150.60.122/live/cctv5p.m3u8
 CCTV-6 电影,http://107.150.60.122/live/cctv6hd.m3u8
@@ -277,7 +291,6 @@ CCTV-16 奥林匹克,http://107.150.60.122/live/cctv16hd.m3u8
 
 体育竞技,#genre#
 广东体育,http://107.150.60.122/live/gdty.m3u8
-五星体育,http://107.150.60.122/live/wxty.m3u8
 Fox Sports News,https://skynewsau-live-premium.akamaized.net/hls/live/2105307/foxsportsnews/live_1080p.m3u8
 Red Bull TV 极限运动,https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8
 
@@ -292,6 +305,8 @@ Sky Racing 2,https://skylivetab-new.akamaized.net/hls/live/2038781/sky2/index.m3
 
     # 同时生成标准 M3U 格式供 iPad / iOS / APTV / VLC / Infuse 播放器使用
     m3u_content = """#EXTM3U
+#EXTINF:-1 tvg-id="cctv1" tvg-name="CCTV-1" group-title="央视专区",CCTV-1 综合 (1080P)
+http://107.150.60.122/live/cctv1hd.m3u8
 #EXTINF:-1 tvg-id="cctv5" tvg-name="CCTV-5" group-title="央视专区",CCTV-5 体育 (1080P)
 http://107.150.60.122/live/cctv5hd.m3u8
 #EXTINF:-1 tvg-id="cctv5plus" tvg-name="CCTV-5+" group-title="央视专区",CCTV-5+ 赛事 (1080P)
@@ -302,8 +317,6 @@ http://107.150.60.122/live/cctv6hd.m3u8
 http://107.150.60.122/live/cctv16hd.m3u8
 #EXTINF:-1 group-title="体育竞技",广东体育 (1080P)
 http://107.150.60.122/live/gdty.m3u8
-#EXTINF:-1 group-title="体育竞技",五星体育 (1080P)
-http://107.150.60.122/live/wxty.m3u8
 #EXTINF:-1 group-title="体育竞技",Fox Sports News (1080P)
 https://skynewsau-live-premium.akamaized.net/hls/live/2105307/foxsportsnews/live_1080p.m3u8
 #EXTINF:-1 group-title="体育竞技",Red Bull TV 极限运动 (1080P)

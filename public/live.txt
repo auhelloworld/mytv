@@ -1,4 +1,5 @@
 央视专区,#genre#
+CCTV-1 综合,http://107.150.60.122/live/cctv1hd.m3u8
 CCTV-5 体育,http://107.150.60.122/live/cctv5hd.m3u8
 CCTV-5+ 赛事,http://107.150.60.122/live/cctv5p.m3u8
 CCTV-6 电影,http://107.150.60.122/live/cctv6hd.m3u8
@@ -6,7 +7,6 @@ CCTV-16 奥林匹克,http://107.150.60.122/live/cctv16hd.m3u8
 
 体育竞技,#genre#
 广东体育,http://107.150.60.122/live/gdty.m3u8
-五星体育,http://107.150.60.122/live/wxty.m3u8
 Fox Sports News,https://skynewsau-live-premium.akamaized.net/hls/live/2105307/foxsportsnews/live_1080p.m3u8
 Red Bull TV 极限运动,https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8
 

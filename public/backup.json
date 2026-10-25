@@ -1,5 +1,5 @@
 {
-  "spider": "https://img2.gelonghui.com/library/78eb1-c206e85e-04e6-470d-963d-256c15ef17e2.png;md5;78eb1d2b2fae8f6fd269745aa1595ed6",
+  "spider": "https://img2.gelonghui.com/library/2d842-41dd0bc6-bca5-4d62-9dab-9becd4621bd0.png;md5;2d842238d97d949fef5c679cb876f81d",
   "wallpaper": "https://深色壁纸.xxooo.cf/",
   "sites": [
     {
@@ -200,17 +200,6 @@
       "changeable": 0
     },
     {
-      "key": "seed",
-      "name": "💡聚剧┃四盘",
-      "type": 3,
-      "api": "csp_SeedhubGuard",
-      "ext": "5++kwLhNYm9UrO9wh7Dl7eKamTee4s/5",
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 0,
-      "indexs": 0
-    },
-    {
       "key": "光影",
       "name": "🌞光影┃不卡",
       "type": 3,
@@ -219,17 +208,6 @@
       "quickSearch": 1,
       "changeable": 0,
       "ext": "rfOIzPkSUkANv6AT2prC8en3+Trbx4j10CIoZMv3Ag4bdEYQqTMqu/Z3YPtC2NJv6n6YeZdgyWlo4WJjBL5gUt6B7LvCEDT4CLrWka31GRq7jwVkfQRB/Jy9HkG7E8xUBIJi5DdVFk3qAuGnwUWqQNRblRxzHW+tdSm6zoFcG/QkZ97bzWOXn0fzbgwjBDkBHgcPIYjlULlctCNKgJ9DzGNSl+zMZDZgmxczsZeeahRS38Cst3qvaHn1T2lmLBGVGXPaRovi77LPRRDOJSNRrdpvCHdRikYwgar0MU56hXMGeGBiKp/OmGTIYR8dFRGvZ/m8xGOqs8U13h6wvADOGlYoP9VaQBqTcDnz9Q0Urhw3oFXWyvIlUrDhX9la5L2NYzagbyk3afqhxeSXXp07nAFsNy2CojHRTbmz4eohLoIJTSi2DzPpheVx1DAapfgRdTc7Ax5ddYpN338GiDAa0GnEgLe04a1pZ5jF+/Q7HJswqlSO+DXCQ3FjRbb/ZPQcozcCWwzhUHE1QUAt799V9DPMuiHGyudIcZarGQmezB+Lb45RdHIRy0PXD+NRVPJlfDFD5FMGSqsiVklibvuwlVHT8J5vHgh/1nEZoI1RlYYLrkjTts2EeQmrpB/sgLyo1vnjFw=="
-    },
-    {
-      "key": "原创",
-      "name": "👒原创┃不卡",
-      "type": 3,
-      "api": "csp_YCyzGuard",
-      "timeout": 15,
-      "playerType": 2,
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1
     },
     {
       "key": "海绵",
@@ -275,6 +253,19 @@
       "playerType": 2,
       "searchable": 1,
       "quickSearch": 1,
+      "changeable": 1
+    },
+    {
+      "key": "风云",
+      "name": "☁️风云┃多线",
+      "type": 3,
+      "api": "csp_FyGuard",
+      "ext": {
+        "type": "video",
+        "name": "Fy"
+      },
+      "quickSearch": 1,
+      "searchable": 1,
       "changeable": 1
     },
     {
@@ -399,15 +390,6 @@
       }
     },
     {
-      "key": "cc",
-      "name": "请勿信视频中任何广告",
-      "type": 3,
-      "api": "csp_XPathGuard",
-      "searchable": 1,
-      "quickSearch": 0,
-      "changeable": 0
-    },
-    {
       "key": "虎牙js",
       "name": "🐯虎牙┃直播",
       "type": 3,
@@ -440,30 +422,11 @@
       "changeable": 0
     },
     {
-      "key": "csp_Dm84",
-      "name": "🤣┃动漫┃巴士",
-      "type": 3,
-      "playerType": "2",
-      "api": "csp_Dm84",
-      "ext": "https://dm84.net"
-    },
-    {
       "key": "csp_Wwys",
       "name": "🌾️┃农民┃影视",
       "type": 3,
       "api": "csp_Wwys",
       "ext": "https://vip.wwgz.cn:5200"
-    },
-    {
-      "key": "厂长",
-      "name": "🏭┃厂长┃影视",
-      "type": 3,
-      "playerType": "2",
-      "api": "csp_Czsapp",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "ext": "https://www.czzy89.com"
     },
     {
       "key": "csp_Jpys",
