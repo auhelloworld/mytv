@@ -1,5 +1,5 @@
 {
-  "spider": "https://img2.gelonghui.com/library/2d842-41dd0bc6-bca5-4d62-9dab-9becd4621bd0.png;md5;2d842238d97d949fef5c679cb876f81d",
+  "spider": "https://img2.gelonghui.com/library/efdab-c02a57ed-4928-4bdb-b4f7-bed7ea1b5f28.png;md5;efdab3edef534eb3d98706f0023a8676",
   "wallpaper": "https://深色壁纸.xxooo.cf/",
   "sites": [
     {
@@ -11,7 +11,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "ext": "https://www.czzy89.com"
+      "ext": "https://cz01.vip"
     },
     {
       "key": "csp_Jpys",
@@ -19,14 +19,6 @@
       "type": 3,
       "api": "csp_Jpys",
       "ext": "https://y2s52n7.com",
-      "searchable": 1
-    },
-    {
-      "key": "csp_Wwys",
-      "name": "🎬┃农民影视┃[超清纯净]",
-      "type": 3,
-      "api": "csp_Wwys",
-      "ext": "https://vip.wwgz.cn:5200",
       "searchable": 1
     },
     {
@@ -89,15 +81,14 @@
       "changeable": 1
     },
     {
-      "key": "咕咕",
-      "name": "🎬┃咕咕动漫┃[超清纯净]",
+      "key": "Dm84",
+      "name": "🎬┃巴士动漫┃[超清纯净]",
       "type": 3,
-      "api": "csp_AppSxGuard",
+      "api": "csp_Dm84Guard",
       "timeout": 10,
       "searchable": 1,
       "quickSearch": 1,
-      "changeable": 1,
-      "ext": "rfOX1voDIQhH8epBwpmIsuS/sSCZxc/l0mxkeoroQVYOelMAvX1kuYptSLB36YxEjVawS9p37Cgo"
+      "changeable": 1
     },
     {
       "key": "csp_Bili",
@@ -121,6 +112,17 @@
       "type": 3,
       "api": "csp_NmyswvGuard",
       "timeout": 15,
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1
+    },
+    {
+      "key": "文采",
+      "name": "🎬┃文采秒播┃[超清纯净]",
+      "type": 3,
+      "api": "csp_JpysGuard",
+      "timeout": 10,
+      "playerType": 2,
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 1
